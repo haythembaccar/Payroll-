@@ -1,0 +1,88 @@
+﻿Exportfile for AOT version 1.0 or later
+Formatversion: 1
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job : affectaionTaxRegionParDefaut déchargé
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #affectaionTaxRegionParDefaut
+    #static void affectaionTaxRegionParDefaut(Args _args)
+    #{
+    #
+    #HcmWorker worker;
+    #PayrollWorkerTaxRegion workertaxregion;
+    #while select RecId from worker
+    #    {
+    #        workertaxregion.Worker = worker.RecId;
+    #        //workertaxregion.TaxRegion = 5637144696;
+    #        workertaxregion.insert();
+    #    }
+    #}
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{F28D4EFE-46C6-43FF-BDD1-4A6F8A7629AD}
+  ENDPROPERTIES
+  
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job : taxRegionUpdate déchargé
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #taxRegionUpdate
+    #static void taxRegionUpdate(Args _args)
+    #{
+    #LogisticsLocation               location;
+    #LogisticsPostalAddress          postalAdress;
+    #PayrollTaxRegion                taxregion;
+    #location.Description="Tunisie";
+    #location.insert();
+    #postalAdress.ZipCode = "2000";
+    #postalAdress.Location = location.RecId;
+    #postalAdress.CountryRegionId="TUN";
+    #postalAdress.City = "TUNISIE";
+    #postalAdress.insert();
+    #taxregion.LogisticsLocation = location.RecId;
+    #taxregion.insert();
+    #}
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{5733CCBE-1016-4FA8-9E2E-77A15B7D218D}
+  ENDPROPERTIES
+  
+
+***Element: PRN
+
+; Microsoft Dynamics AX Project : Cynapsis_Payroll_update_1 unloaded
+; --------------------------------------------------------------------------------
+  PROJECTVERSION 2
+  
+  PROJECT #Cynapsis_Payroll_update_1
+  PRIVATE
+  PROPERTIES
+    Name                #Cynapsis_Payroll_update_1
+    Origin              #{904D80C0-CDF5-48C4-B430-7A0AB78E8283}
+  ENDPROPERTIES
+  
+    PROJECTCLASS ProjectNode
+    BEGINNODE
+      FILETYPE 0
+      UTILTYPE 5
+      UTILOBJECTID 0
+      NODETYPE 215
+      NAME #affectaionTaxRegionParDefaut
+    ENDNODE
+    BEGINNODE
+      FILETYPE 0
+      UTILTYPE 5
+      UTILOBJECTID 0
+      NODETYPE 215
+      NAME #taxRegionUpdate
+    ENDNODE
+  ENDPROJECT
+  
+
+***Element: END
