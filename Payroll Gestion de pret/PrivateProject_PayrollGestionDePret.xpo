@@ -10,7 +10,7 @@ VERSION 31
 QUERY #PayrollPretListPage_EnCours
   PROPERTIES
     Name                #PayrollPretListPage_EnCours
-    Version             #23
+    Version             #24
     NextUniqueId        #1001
     Origin              #{A9244E11-80EA-442D-8E9F-E8D868D4BFD5}
   ENDPROPERTIES
@@ -88,7 +88,7 @@ VERSION 31
 QUERY #PayrollPretListPage_Arrete
   PROPERTIES
     Name                #PayrollPretListPage_Arrete
-    Version             #23
+    Version             #24
     NextUniqueId        #1002
     Origin              #{58717930-DAED-4267-80D3-F54CC0ADC44B}
   ENDPROPERTIES
@@ -166,7 +166,7 @@ VERSION 31
 QUERY #PayrollPretListPage_solde
   PROPERTIES
     Name                #PayrollPretListPage_solde
-    Version             #20
+    Version             #21
     NextUniqueId        #1001
     Origin              #{B66AD0C7-CB2F-431C-AF27-0D261F67111A}
   ENDPROPERTIES
@@ -244,7 +244,7 @@ VERSION 31
 QUERY #PayrollPretInfo
   PROPERTIES
     Name                #PayrollPretInfo
-    Version             #17
+    Version             #18
     NextUniqueId        #1001
     Origin              #{4F6406EB-C6B3-4423-A132-FFCBBCC92DE5}
   ENDPROPERTIES
@@ -1391,194 +1391,6 @@ ENDINFOPART
   ENDMENUITEM
   
 
-***Element: UTS
-
-; Microsoft Dynamics AX String : MatriculePret déchargé
-; --------------------------------------------------------------------------------
-  USERTYPEVERSION 6
-  
-  USERTYPE #MatriculePret
-  STRING
-    PROPERTIES
-      Name                #MatriculePret
-      Label               #Matricule
-      HelpText            #Matricule
-      Origin              #{759BE60E-9FCA-41B1-8CF4-6EBA7F83E14C}
-      ReferenceTable      #PayrollPret
-    ENDPROPERTIES
-    
-    TYPEELEMENTS
-    ENDTYPEELEMENTS
-    
-    TYPEREFERENCES
-    ENDTYPEREFERENCES
-    
-    TYPELOOKUPS
-      TYPELOOKUP LOOKUP
-      PROPERTIES
-        Table               #PayrollPret
-        RelatedField        #MatriculePret
-      ENDPROPERTIES
-      
-    ENDTYPELOOKUPS
-    
-  ENDUSERTYPE
-  
-
-***Element: DBT
-
-; Microsoft Dynamics AX Table : PayrollPretAmortissements unloaded
-; --------------------------------------------------------------------------------
-  TABLEVERSION 1
-  
-  TABLE #PayrollPretAmortissements
-    EnforceFKRelation 1
-    PROPERTIES
-      Name                #PayrollPretAmortissements
-      CreateRecIdIndex    #Yes
-      PrimaryIndex        #SurrogateKey
-      ClusterIndex        #SurrogateKey
-      Origin              #{CE707C4C-D0B8-491F-8E90-FB3A3C4C0AEC}
-    ENDPROPERTIES
-    
-    FIELDS
-      FIELD #Annuite
-        REAL
-        PROPERTIES
-          Name                #Annuite
-          Label               #Annuité
-          Table               #PayrollPretAmortissements
-          Origin              #{C8C13469-3EAA-451C-9ADA-952BF728F3E8}
-        ENDPROPERTIES
-        
-      FIELD #CapitalAmorti
-        REAL
-        PROPERTIES
-          Name                #CapitalAmorti
-          Label               #Capital amorti
-          Table               #PayrollPretAmortissements
-          Origin              #{BFF566FA-14C7-4EB2-AF8F-4CFF7E2C7C08}
-        ENDPROPERTIES
-        
-      FIELD #CapitalDu
-        REAL
-        PROPERTIES
-          Name                #CapitalDu
-          Label               #Capital dû
-          Table               #PayrollPretAmortissements
-          Origin              #{2A251C72-E8F4-45AB-9A63-03B1B50014E1}
-        ENDPROPERTIES
-        
-      FIELD #CapitalRetDu
-        REAL
-        PROPERTIES
-          Name                #CapitalRetDu
-          Label               #Capital ret dû
-          Table               #PayrollPretAmortissements
-          Origin              #{A748059F-3D7A-4A18-91C9-AF7B817F5DA6}
-        ENDPROPERTIES
-        
-      FIELD #Date
-        DATETIME
-        PROPERTIES
-          Name                #Date
-          Table               #PayrollPretAmortissements
-          Origin              #{99718122-D0E5-475E-8717-B915C4352807}
-        ENDPROPERTIES
-        
-      FIELD #Interet
-        REAL
-        PROPERTIES
-          Name                #Interet
-          Label               #Intérêt
-          Table               #PayrollPretAmortissements
-          Origin              #{F5326F3B-8DD8-4795-8623-1C3C1BE1D32F}
-        ENDPROPERTIES
-        
-      FIELD #isPayed
-        ENUM
-        PROPERTIES
-          Name                #isPayed
-          Label               #Encaissé
-          Table               #PayrollPretAmortissements
-          Origin              #{F5C89001-F114-4A3A-98D2-45AD02B0615A}
-          EnumType            #NoYes
-        ENDPROPERTIES
-        
-      FIELD #isRembourse
-        ENUM
-        PROPERTIES
-          Name                #isRembourse
-          Table               #PayrollPretAmortissements
-          Origin              #{8B935529-FC5E-4D81-B46F-6AD9561E10C5}
-          EnumType            #NoYes
-        ENDPROPERTIES
-        
-      FIELD #Numero
-        INT
-        PROPERTIES
-          Name                #Numero
-          Label               #Numéro
-          AllowEdit           #No
-          Table               #PayrollPretAmortissements
-          Origin              #{12032A07-BF8F-42AE-9321-5285244DFF3D}
-        ENDPROPERTIES
-        
-      FIELD #PayrollPret
-        INT64
-        PROPERTIES
-          Name                #PayrollPret
-          Table               #PayrollPretAmortissements
-          Origin              #{1966B43A-97F8-4431-9BDF-DCA84F36CF71}
-          ExtendedDataType    #RefRecId
-        ENDPROPERTIES
-        
-      FIELD #TotalAmorti
-        REAL
-        PROPERTIES
-          Name                #TotalAmorti
-          Label               #Total amorti
-          Table               #PayrollPretAmortissements
-          Origin              #{6AB44582-6D9A-4577-9DDB-63DBE04051BF}
-        ENDPROPERTIES
-        
-    ENDFIELDS
-    GROUPS
-    ENDGROUPS
-    
-    INDICES
-    ENDINDICES
-    FULLTEXTINDICES
-    ENDFULLTEXTINDICES
-    REFERENCES
-      REFERENCE #Pret
-        PROPERTIES
-          Name                #Pret
-          Table               #PayrollPret
-          RelatedTableCardinality   #ExactlyOne
-          Cardinality         #OneMore
-          UseDefaultRoleNames #Yes
-        ENDPROPERTIES
-        
-        FIELDREFERENCES
-          REFERENCETYPE PKFK
-          PROPERTIES
-            Field               #PayrollPret
-            RelatedField        #RecId
-          ENDPROPERTIES
-          
-        ENDFIELDREFERENCES
-      ENDREFERENCE
-    ENDREFERENCES
-    
-    DELETEACTIONS
-    ENDDELETEACTIONS
-    
-    METHODS
-    ENDMETHODS
-  ENDTABLE
-  
-
 ***Element: DBT
 
 ; Microsoft Dynamics AX Table : PayrollPret unloaded
@@ -1594,7 +1406,6 @@ ENDINFOPART
       PrimaryIndex        #SurrogateKey
       ClusterIndex        #SurrogateKey
       ReplacementKey      #PretIdx
-      OccEnabled          #No
       Origin              #{FC921282-CDD8-4D9E-BCF2-D46181BB7EFF}
     ENDPROPERTIES
     
@@ -1637,7 +1448,8 @@ ENDINFOPART
           Label               #Matricule
           Table               #PayrollPret
           Origin              #{3CFA9F5C-0EDA-464D-A77C-2E513C31F6B4}
-          ExtendedDataType    #MatriculePret
+          ExtendedDataType    #PayrollPretId
+          StringSize          #15
         ENDPROPERTIES
         
       FIELD #Montant
@@ -1972,6 +1784,7 @@ ENDINFOPART
         #public void insert()
         #{
         #    this.MatriculePret = NumberSeq::newGetNum(PayrollPret::numRefMatPret(),true).num();
+        #    this.MontantRestant = this.Montant;
         #    super();
         #    this.createEchancier();
         #}
@@ -1981,7 +1794,582 @@ ENDINFOPART
         #
         #{
         #
-        #    return NumberSeqReference::findReference(extendedTypeNum(MatriculePret));
+        #    return NumberSeqReference::findReference(extendedTypeNum(PayrollPretId));
+        #
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDTABLE
+  
+
+***Element: 
+
+; Microsoft Dynamics AX ***UNKNOWN*** : MatriculePret unloaded
+; --------------------------------------------------------------------------------
+  VERSION 1
+  
+  ***UNKNOWN*** #MatriculePret
+  END***UNKNOWN***
+  
+
+***Element: DBT
+
+; Microsoft Dynamics AX Table : PayrollPretAmortissements unloaded
+; --------------------------------------------------------------------------------
+  TABLEVERSION 1
+  
+  TABLE #PayrollPretAmortissements
+    EnforceFKRelation 1
+    PROPERTIES
+      Name                #PayrollPretAmortissements
+      CreateRecIdIndex    #Yes
+      PrimaryIndex        #SurrogateKey
+      ClusterIndex        #SurrogateKey
+      Origin              #{CE707C4C-D0B8-491F-8E90-FB3A3C4C0AEC}
+    ENDPROPERTIES
+    
+    FIELDS
+      FIELD #Annuite
+        REAL
+        PROPERTIES
+          Name                #Annuite
+          Label               #Annuité
+          Table               #PayrollPretAmortissements
+          Origin              #{C8C13469-3EAA-451C-9ADA-952BF728F3E8}
+        ENDPROPERTIES
+        
+      FIELD #CapitalAmorti
+        REAL
+        PROPERTIES
+          Name                #CapitalAmorti
+          Label               #Capital amorti
+          Table               #PayrollPretAmortissements
+          Origin              #{BFF566FA-14C7-4EB2-AF8F-4CFF7E2C7C08}
+        ENDPROPERTIES
+        
+      FIELD #CapitalDu
+        REAL
+        PROPERTIES
+          Name                #CapitalDu
+          Label               #Capital dû
+          Table               #PayrollPretAmortissements
+          Origin              #{2A251C72-E8F4-45AB-9A63-03B1B50014E1}
+        ENDPROPERTIES
+        
+      FIELD #CapitalRetDu
+        REAL
+        PROPERTIES
+          Name                #CapitalRetDu
+          Label               #Capital ret dû
+          Table               #PayrollPretAmortissements
+          Origin              #{A748059F-3D7A-4A18-91C9-AF7B817F5DA6}
+        ENDPROPERTIES
+        
+      FIELD #Date
+        DATETIME
+        PROPERTIES
+          Name                #Date
+          Table               #PayrollPretAmortissements
+          Origin              #{99718122-D0E5-475E-8717-B915C4352807}
+        ENDPROPERTIES
+        
+      FIELD #Interet
+        REAL
+        PROPERTIES
+          Name                #Interet
+          Label               #Intérêt
+          Table               #PayrollPretAmortissements
+          Origin              #{F5326F3B-8DD8-4795-8623-1C3C1BE1D32F}
+        ENDPROPERTIES
+        
+      FIELD #isPayed
+        ENUM
+        PROPERTIES
+          Name                #isPayed
+          Label               #Encaissé
+          Table               #PayrollPretAmortissements
+          Origin              #{F5C89001-F114-4A3A-98D2-45AD02B0615A}
+          EnumType            #NoYes
+        ENDPROPERTIES
+        
+      FIELD #isRembourse
+        ENUM
+        PROPERTIES
+          Name                #isRembourse
+          Table               #PayrollPretAmortissements
+          Origin              #{8B935529-FC5E-4D81-B46F-6AD9561E10C5}
+          EnumType            #NoYes
+        ENDPROPERTIES
+        
+      FIELD #Numero
+        INT
+        PROPERTIES
+          Name                #Numero
+          Label               #Numéro
+          AllowEdit           #No
+          Table               #PayrollPretAmortissements
+          Origin              #{12032A07-BF8F-42AE-9321-5285244DFF3D}
+        ENDPROPERTIES
+        
+      FIELD #PayrollPret
+        INT64
+        PROPERTIES
+          Name                #PayrollPret
+          Table               #PayrollPretAmortissements
+          Origin              #{1966B43A-97F8-4431-9BDF-DCA84F36CF71}
+          ExtendedDataType    #RefRecId
+        ENDPROPERTIES
+        
+      FIELD #TotalAmorti
+        REAL
+        PROPERTIES
+          Name                #TotalAmorti
+          Label               #Total amorti
+          Table               #PayrollPretAmortissements
+          Origin              #{6AB44582-6D9A-4577-9DDB-63DBE04051BF}
+        ENDPROPERTIES
+        
+    ENDFIELDS
+    GROUPS
+    ENDGROUPS
+    
+    INDICES
+    ENDINDICES
+    FULLTEXTINDICES
+    ENDFULLTEXTINDICES
+    REFERENCES
+      REFERENCE #Pret
+        PROPERTIES
+          Name                #Pret
+          Table               #PayrollPret
+          RelatedTableCardinality   #ExactlyOne
+          Cardinality         #OneMore
+          UseDefaultRoleNames #Yes
+        ENDPROPERTIES
+        
+        FIELDREFERENCES
+          REFERENCETYPE PKFK
+          PROPERTIES
+            Field               #PayrollPret
+            RelatedField        #RecId
+          ENDPROPERTIES
+          
+        ENDFIELDREFERENCES
+      ENDREFERENCE
+    ENDREFERENCES
+    
+    DELETEACTIONS
+    ENDDELETEACTIONS
+    
+    METHODS
+    ENDMETHODS
+  ENDTABLE
+  
+
+***Element: DBT
+
+; Microsoft Dynamics AX Table : PayrollPret unloaded
+; --------------------------------------------------------------------------------
+  TABLEVERSION 1
+  
+  TABLE #PayrollPret
+    EnforceFKRelation 1
+    PROPERTIES
+      Name                #PayrollPret
+      TitleField1         #MatriculePret
+      CreateRecIdIndex    #Yes
+      PrimaryIndex        #SurrogateKey
+      ClusterIndex        #SurrogateKey
+      ReplacementKey      #PretIdx
+      Origin              #{FC921282-CDD8-4D9E-BCF2-D46181BB7EFF}
+    ENDPROPERTIES
+    
+    FIELDS
+      FIELD #DateOctroit
+        DATETIME
+        PROPERTIES
+          Name                #DateOctroit
+          Label               #Date d'octroit
+          Mandatory           #Yes
+          Table               #PayrollPret
+          Origin              #{9C4CA6BF-2FB1-4767-8DC0-1FF7BBA3919F}
+        ENDPROPERTIES
+        
+      FIELD #DatePremiereEcheance
+        DATETIME
+        PROPERTIES
+          Name                #DatePremiereEcheance
+          Label               #Date de 1ére échéance
+          Mandatory           #Yes
+          Table               #PayrollPret
+          Origin              #{A1BB1F8A-B860-450A-9422-77A68862400B}
+        ENDPROPERTIES
+        
+      FIELD #HcmWorker
+        INT64
+        PROPERTIES
+          Name                #HcmWorker
+          Label               #Collaborateur
+          Mandatory           #Yes
+          Table               #PayrollPret
+          Origin              #{8F021DBD-0864-4288-BED3-9BE28CAA8DC5}
+          ExtendedDataType    #RefRecId
+        ENDPROPERTIES
+        
+      FIELD #MatriculePret
+        STRING
+        PROPERTIES
+          Name                #MatriculePret
+          Label               #Matricule
+          Table               #PayrollPret
+          Origin              #{3CFA9F5C-0EDA-464D-A77C-2E513C31F6B4}
+          ExtendedDataType    #PayrollPretId
+          StringSize          #15
+        ENDPROPERTIES
+        
+      FIELD #Montant
+        REAL
+        PROPERTIES
+          Name                #Montant
+          Mandatory           #Yes
+          Table               #PayrollPret
+          Origin              #{D2BD7FCC-44E1-4938-8B1E-147563D0334E}
+        ENDPROPERTIES
+        
+      FIELD #MontantAmorti
+        REAL
+        PROPERTIES
+          Name                #MontantAmorti
+          Label               #Montant amorti
+          Table               #PayrollPret
+          Origin              #{65DEE837-851F-44A6-800F-5F2A2C77D671}
+        ENDPROPERTIES
+        
+      FIELD #MontantRestant
+        REAL
+        PROPERTIES
+          Name                #MontantRestant
+          Label               #Montant restant dû
+          Table               #PayrollPret
+          Origin              #{780860B2-EFA5-44E1-87D2-AC4109685127}
+        ENDPROPERTIES
+        
+      FIELD #NbEcheances
+        INT
+        PROPERTIES
+          Name                #NbEcheances
+          Label               #Nombre d'échéances
+          Mandatory           #Yes
+          Table               #PayrollPret
+          Origin              #{BFC1A63C-4E4C-4F17-98F4-2551F1B26476}
+        ENDPROPERTIES
+        
+      FIELD #PayrollPretEtablissementPayeur
+        INT64
+        PROPERTIES
+          Name                #PayrollPretEtablissementPayeur
+          Label               #Etablissement payeur
+          Table               #PayrollPret
+          Origin              #{30FB613A-E50A-40E8-908F-A6519F8C03A8}
+          ExtendedDataType    #RefRecId
+        ENDPROPERTIES
+        
+      FIELD #PayrollPretObjet
+        INT64
+        PROPERTIES
+          Name                #PayrollPretObjet
+          Label               #Objet
+          Table               #PayrollPret
+          Origin              #{E5C8F039-710F-451F-BCAC-64319EB1060C}
+          ExtendedDataType    #RefRecId
+        ENDPROPERTIES
+        
+      FIELD #PayrollPretType
+        INT64
+        PROPERTIES
+          Name                #PayrollPretType
+          Label               #Type
+          HelpText            #Type de prêt
+          MinReadAccess       #Yes
+          Table               #PayrollPret
+          Origin              #{2AD30D21-9296-4F44-8B05-2A11B5E9EE60}
+          ExtendedDataType    #RefRecId
+        ENDPROPERTIES
+        
+      FIELD #Status
+        ENUM
+        PROPERTIES
+          Name                #Status
+          Label               #Etat
+          Table               #PayrollPret
+          Origin              #{771CCCF5-06A8-41FB-893C-EA9BD583500B}
+          EnumType            #PayrollPretStatus
+        ENDPROPERTIES
+        
+      FIELD #TauxInteret
+        REAL
+        PROPERTIES
+          Name                #TauxInteret
+          Label               #Taux d'interêt
+          Table               #PayrollPret
+          Origin              #{61CF11CA-E89B-4230-BC3A-CEC967B780B6}
+        ENDPROPERTIES
+        
+    ENDFIELDS
+    GROUPS
+      GROUP #AutoIdentification
+        PROPERTIES
+          Name                #AutoIdentification
+        ENDPROPERTIES
+        
+        GROUPFIELDS
+          #MatriculePret
+        ENDGROUPFIELDS
+      ENDGROUP
+    ENDGROUPS
+    
+    INDICES
+      #PretIdx
+      PROPERTIES
+        Name                #PretIdx
+        AllowDuplicates     #No
+        AlternateKey        #Yes
+        Origin              #{58342CDA-EF9D-4BC9-896D-EE22DDC15D96}
+      ENDPROPERTIES
+      
+      INDEXFIELDS
+        #MatriculePret
+      ENDINDEXFIELDS
+      
+    ENDINDICES
+    FULLTEXTINDICES
+    ENDFULLTEXTINDICES
+    REFERENCES
+      REFERENCE #EtablissementPayeur_FK
+        PROPERTIES
+          Name                #EtablissementPayeur_FK
+          Table               #PayrollPretEtablissementPayeur
+          RelatedTableCardinality   #ExactlyOne
+          Cardinality         #ZeroMore
+          UseDefaultRoleNames #Yes
+        ENDPROPERTIES
+        
+        FIELDREFERENCES
+          REFERENCETYPE PKFK
+          PROPERTIES
+            Field               #PayrollPretEtablissementPayeur
+            RelatedField        #RecId
+          ENDPROPERTIES
+          
+        ENDFIELDREFERENCES
+      ENDREFERENCE
+      REFERENCE #HcmWorker_FK
+        PROPERTIES
+          Name                #HcmWorker_FK
+          Table               #HcmWorker
+          RelatedTableCardinality   #ExactlyOne
+          Cardinality         #OneMore
+          UseDefaultRoleNames #Yes
+        ENDPROPERTIES
+        
+        FIELDREFERENCES
+          REFERENCETYPE PKFK
+          PROPERTIES
+            Field               #HcmWorker
+            RelatedField        #RecId
+          ENDPROPERTIES
+          
+        ENDFIELDREFERENCES
+      ENDREFERENCE
+      REFERENCE #ObjetPret_FK
+        PROPERTIES
+          Name                #ObjetPret_FK
+          Table               #PayrollPretObjet
+          RelatedTableCardinality   #ExactlyOne
+          Cardinality         #ZeroMore
+          UseDefaultRoleNames #Yes
+        ENDPROPERTIES
+        
+        FIELDREFERENCES
+          REFERENCETYPE PKFK
+          PROPERTIES
+            Field               #PayrollPretObjet
+            RelatedField        #RecId
+          ENDPROPERTIES
+          
+        ENDFIELDREFERENCES
+      ENDREFERENCE
+      REFERENCE #TypePret_FK
+        PROPERTIES
+          Name                #TypePret_FK
+          Table               #PayrollPretType
+          RelatedTableCardinality   #ExactlyOne
+          Cardinality         #ZeroMore
+          UseDefaultRoleNames #Yes
+        ENDPROPERTIES
+        
+        FIELDREFERENCES
+          REFERENCETYPE PKFK
+          PROPERTIES
+            Field               #PayrollPretType
+            RelatedField        #RecId
+          ENDPROPERTIES
+          
+        ENDFIELDREFERENCES
+      ENDREFERENCE
+    ENDREFERENCES
+    
+    DELETEACTIONS
+      #PayrollPretAmortissements(Pret)
+      PROPERTIES
+        Table               #PayrollPretAmortissements
+        DeleteAction        #Cascade
+        Relation            #Pret
+      ENDPROPERTIES
+      
+    ENDDELETEACTIONS
+    
+    METHODS
+      SOURCE #annuite
+        # public real annuite(real _capitalDu, real _interet, int _nbEcheances)
+        #{
+        #
+        #
+        #  _interet = _interet/100;
+        #
+        #  return   _capitalDu * (_interet/12) / ( 1 - power( ( 1 + _interet/12 ) , (- _nbEcheances ) ) )  ;
+        #
+        #
+        #}
+      ENDSOURCE
+      SOURCE #createEchancier
+        #private void createEchancier()
+        #{
+        #
+        #    //Non utilisé pour le moment
+        #
+        #    int i  ;
+        #    PayrollPretAmortissements payrollPretAmortissements;
+        #    utcDateTime dateEcheance = this.DatePremiereEcheance ;
+        #    real capitalDu  =  this.Montant ,
+        #    capitalAmorti  ,
+        #    totalAmortit ,
+        #    annuite  ,
+        #    interet  ;
+        #    RecordSortedList echeancier;//liste des echances à inserrer
+        #
+        #    echeancier = new RecordSortedList(tableNum(PayrollPretAmortissements));
+        #    echeancier.sortOrder(fieldNum(payrollPretAmortissements,Numero));
+        #
+        #
+        #    if(this.DatePremiereEcheance >= this.DateOctroit || this.Montant != 0)
+        #    {
+        #
+        #    this.MontantRestant = this.Montant ;
+        #    if( this.TauxInteret == 0 )
+        #    {
+        #
+        #        for( i=0 ; i < this.NbEcheances ; i++ ) // sans taux d'interet
+        #    {
+        #    capitalAmorti = this.Montant / this.NbEcheances ;
+        #    payrollPretAmortissements.Numero = i + 1 ;
+        #    payrollPretAmortissements.PayrollPret = this.RecId ;
+        #    payrollPretAmortissements.Date = dateEcheance;
+        #    payrollPretAmortissements.isPayed = NoYes :: No;
+        #    dateEcheance = DateTimeUtil::addMonths(dateEcheance,1);
+        #    payrollPretAmortissements.CapitalDu = capitalDu;
+        #    payrollPretAmortissements.CapitalAmorti = capitalAmorti ;
+        #    capitalDu = capitalDu - capitalAmorti ;
+        #    totalAmortit = totalAmortit + capitalAmorti ;
+        #    payrollPretAmortissements.CapitalRetDu = capitalDu ;
+        #    payrollPretAmortissements.Annuite = capitalAmorti ;
+        #    payrollPretAmortissements.TotalAmorti = totalAmortit ;
+        #    echeancier.ins(payrollPretAmortissements);
+        #     }
+        #   }
+        #   else
+        #            // avec taux d'interet
+        #    {
+        #        annuite = this.annuite(capitalDu,this.TauxInteret,this.NbEcheances);
+        #        for( i=0 ; i < this.NbEcheances ; i++ )
+        #        {
+        #        payrollPretAmortissements.Numero = i + 1 ;
+        #        payrollPretAmortissements.PayrollPret = this.RecId ;
+        #        PayrollPretAmortissements.Date = dateEcheance;
+        #        dateEcheance = DateTimeUtil::addMonths(dateEcheance,1);
+        #        payrollPretAmortissements.isPayed = NoYes :: No ;
+        #        payrollPretAmortissements.CapitalDu = capitalDu ;
+        #        payrollPretAmortissements.Annuite = annuite ;
+        #        interet = PayrollPretCalculateEcheancier::interet( capitalDu , this.TauxInteret);
+        #        payrollPretAmortissements.Interet = interet ;
+        #        payrollPretAmortissements.CapitalAmorti = annuite - interet ;
+        #        PayrollPretAmortissements.CapitalRetDu = capitalDu - ( annuite - interet ) ;
+        #        totalAmortit += ( annuite - interet ) ;
+        #        payrollPretAmortissements.TotalAmorti = totalAmortit ;
+        #        capitalDu -= ( annuite - interet ) ;
+        #        echeancier.ins(payrollPretAmortissements);
+        #        }
+        #    }
+        #
+        #        // insertion
+        #        echeancier.insertDatabase();
+        #
+        #
+        #
+        #
+        #    }
+        # }
+        #
+        #
+      ENDSOURCE
+      SOURCE #delete
+        #public void delete()
+        #{
+        #    super();
+        #}
+      ENDSOURCE
+      SOURCE #displayPretStatusImage
+        #public display ImageRes displayPretStatusImage()
+        #{
+        #    #resAppl
+        #    ImageRes imageRes = 0;
+        #
+        #    switch (this.Status)
+        #    {
+        #        case PayrollPretStatus::Arrete:
+        #            imageRes = #Image_Warning;
+        #            break;
+        #
+        #        case PayrollPretStatus::EnCours:
+        #            imageRes = #SentToPaymentJournal;
+        #            break;
+        #
+        #        case PayrollPretStatus::Solde:
+        #            imageRes = #PaymentIssued;
+        #            break;
+        #
+        #        default:
+        #            break;
+        #    }
+        #
+        #    return imageRes;
+        #}
+      ENDSOURCE
+      SOURCE #insert
+        #public void insert()
+        #{
+        #    this.MatriculePret = NumberSeq::newGetNum(PayrollPret::numRefMatPret(),true).num();
+        #    this.MontantRestant = this.Montant;
+        #    super();
+        #    this.createEchancier();
+        #}
+      ENDSOURCE
+      SOURCE #numRefMatPret
+        #static client server NumberSequenceReference numRefMatPret()
+        #
+        #{
+        #
+        #    return NumberSeqReference::findReference(extendedTypeNum(PayrollPretId));
         #
         #}
       ENDSOURCE
@@ -4444,7 +4832,6 @@ ENDINFOPART
       ClusterIndex        #SurrogateKey
       ReplacementKey      #PretObjectIdx
       Origin              #{CA404B65-9CD6-404E-948A-C6AF26F8FE27}
-      LegacyId            #1
     ENDPROPERTIES
     
     FIELDS
@@ -4536,6 +4923,7 @@ ENDINFOPART
       SaveDataPerCompany  #No
       PrimaryIndex        #SurrogateKey
       ClusterIndex        #SurrogateKey
+      ReplacementKey      #PretTypeIdx
       Origin              #{E540FC2B-28A7-462C-A55E-C81AC8737A08}
     ENDPROPERTIES
     
@@ -4560,6 +4948,16 @@ ENDINFOPART
         
     ENDFIELDS
     GROUPS
+      GROUP #AutoIdentification
+        PROPERTIES
+          Name                #AutoIdentification
+        ENDPROPERTIES
+        
+        GROUPFIELDS
+          #Code
+          #Intitule
+        ENDGROUPFIELDS
+      ENDGROUP
     ENDGROUPS
     
     INDICES
@@ -4600,6 +4998,85 @@ ENDINFOPART
       ENDSOURCE
     ENDMETHODS
   ENDTABLE
+  
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job : insertTaxTN déchargé
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #insertTaxTN
+    #static void insertTaxTN(Args _args)
+    #{
+    #    PayrollTaxCode tax;
+    #    tax.Code = "IRPP";
+    #    tax.Description = "Impôt sur le revenu des personnes physiques";
+    #    tax.CountryRegionId ="TUN";
+    #    tax.insert();
+    #    tax.clear();
+    #    tax.Code = "RED";
+    #    tax.Description = "Redevance";
+    #    tax.CountryRegionId ="TUN";
+    #    tax.insert();
+    #    tax.clear();
+    #    tax.Code = "FOPROLOS";
+    #    tax.Description = "Fonds de Promotion de Logements Sociaux";
+    #    tax.CountryRegionId ="TUN";
+    #    tax.insert();
+    #    tax.clear();
+    #    tax.Code = "TFP";
+    #    tax.Description = "Taxe à la Formation Professionnelle";
+    #    tax.CountryRegionId ="TUN";
+    #    tax.insert();
+    #    tax.clear();
+    #
+    #}
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{F51138B1-B63E-4699-8860-63608486E287}
+  ENDPROPERTIES
+  
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job : CreerReferenceSouche déchargé
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #CreerReferenceSouche
+    #static void CreerReferenceSouche(Args _args)
+    #{
+    #    NumberSeqModulePayroll NumberSeqModulePayroll = new NumberSeqModulePayroll();
+    #    ;
+    #    NumberSeqModulePayroll.load();
+    #}
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{69F37DB9-EF2C-4191-A404-8B7166A5AFF7}
+  ENDPROPERTIES
+  
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job : clearpret déchargé
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #clearpret
+    #static void clearpret(Args _args)
+    #{
+    #PayrollPret ppp;
+    #while select forUpdate ppp
+    #    {ttsBegin;
+    #    ppp.delete();
+    #    ttsCommit;
+    #    }
+    #}
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{E6591550-1703-4B0E-A6C3-ABB40E69DAF1}
+  ENDPROPERTIES
   
 
 ***Element: CLS
@@ -6169,7 +6646,7 @@ ENDINFOPART
         #
         #    this.setUpPayStatementIds(datatype);
         #
-        #    this.setUpPretMatricule(datatype);
+        #    this.setUpPayrollPretId(datatype);
         #}
       ENDSOURCE
       SOURCE #numberSeqModule
@@ -6207,6 +6684,32 @@ ENDINFOPART
         #    datatype.parmSortField(1);
         #
         #    datatype.addParameterType(NumberSeqParameterType::DataArea, true, false);
+        #    this.create(datatype);
+        #}
+      ENDSOURCE
+      SOURCE #setUpPayrollPretId
+        #private void setUpPayrollPretId(NumberSeqDatatype datatype)
+        #{
+        #    datatype.parmDatatypeId(extendedtypenum(PayrollPretId));
+        #
+        #    datatype.parmReferenceHelp("identifiant prêt");
+        #
+        #    datatype.parmReferenceLabel("identifiant prêt");
+        #
+        #    datatype.parmWizardIsContinuous(true);
+        #
+        #    datatype.parmWizardIsManual(NoYes::No);
+        #
+        #    datatype.parmWizardIsChangeDownAllowed(NoYes::No);
+        #
+        #    datatype.parmWizardIsChangeUpAllowed(NoYes::No);
+        #
+        #    datatype.parmWizardHighest(999999999);
+        #
+        #    datatype.parmSortField(12);
+        #
+        #
+        #
         #    this.create(datatype);
         #}
       ENDSOURCE
@@ -6270,32 +6773,6 @@ ENDINFOPART
         #    datatype.parmSortField(5);
         #
         #    datatype.addParameterType(NumberSeqParameterType::DataArea, true, false);
-        #    this.create(datatype);
-        #}
-      ENDSOURCE
-      SOURCE #setUpPretMatricule
-        #private void setUpPretMatricule(NumberSeqDatatype datatype)
-        #{
-        #    datatype.parmDatatypeId(extendedtypenum(MatriculePret));
-        #
-        #    datatype.parmReferenceHelp("Matricule");
-        #
-        #    datatype.parmReferenceLabel("Matricule");
-        #
-        #    datatype.parmWizardIsContinuous(true);
-        #
-        #    datatype.parmWizardIsManual(NoYes::No);
-        #
-        #    datatype.parmWizardIsChangeDownAllowed(NoYes::No);
-        #
-        #    datatype.parmWizardIsChangeUpAllowed(NoYes::No);
-        #
-        #    datatype.parmWizardHighest(999999999);
-        #
-        #    datatype.parmSortField(12);
-        #
-        #
-        #
         #    this.create(datatype);
         #}
       ENDSOURCE
@@ -6991,6 +7468,8 @@ FORM #PayrollTabAmortissement
             #        select forUpdate  pret
             #        where pret.RecId == amortissements_Update.PayrollPret;
             #
+            #
+            #
             #        if( pret.Status != PayrollPretStatus :: Solde )
             #
             #        {
@@ -7006,7 +7485,6 @@ FORM #PayrollTabAmortissement
             #                    }
             #
             #                amortissement_Spotter  =  amortissements_Update;
-            #
             #            }
             #         totalAmortitPred = amortissement_Spotter.TotalAmorti;
             #
@@ -7670,318 +8148,6 @@ ENDFORM
 ; --------------------------------------------------------------------------------
 FRMVERSION 12
 
-FORM #PayrollPretEtablissementPayeur
-  PROPERTIES
-    Name                #PayrollPretEtablissementPayeur
-    Origin              #{3FC0BA7B-33FD-41D4-B91E-3400924D3263}
-  ENDPROPERTIES
-  
-  METHODS
-    SOURCE #classDeclaration
-      #public class FormRun extends ObjectRun
-      #{
-      #}
-    ENDSOURCE
-  ENDMETHODS
-  OBJECTBANK
-    PROPERTIES
-    ENDPROPERTIES
-    
-    DATASOURCE
-      OBJECTPOOL
-        PROPERTIES
-          Name                #PayrollPretEtablissementPayeur
-          Table               #PayrollPretEtablissementPayeur
-        ENDPROPERTIES
-        
-        FIELDLIST
-        ENDFIELDLIST
-      ENDOBJECTPOOL
-      METHODS
-      ENDMETHODS
-    ENDDATASOURCE
-  ENDOBJECTBANK
-  
-  REFERENCEDATASOURCES
-  ENDREFERENCEDATASOURCES
-  
-  JOINS
-  ENDJOINS
-  
-  PARTREFERENCES
-  ENDPARTREFERENCES
-  
-  DESIGN
-    PROPERTIES
-    ENDPROPERTIES
-    
-    CONTAINER
-      CONTROL ACTIONPANE
-        PROPERTIES
-          Name                #ActionPane
-          ElementPosition     #715827882
-          Style               #Strip
-          DataSource          #PayrollPretEtablissementPayeur
-        ENDPROPERTIES
-        
-        METHODS
-        ENDMETHODS
-      ENDCONTROL 
-      
-      CONTROL ACTIONPANETAB
-        PROPERTIES
-          Name                #ActionPaneTab
-          ElementPosition     #1431655764
-          HierarchyParent     #ActionPane
-        ENDPROPERTIES
-        
-        METHODS
-        ENDMETHODS
-      ENDCONTROL 
-      
-      CONTROL BUTTONGROUP
-        PROPERTIES
-          Name                #ButtonGroup
-          ElementPosition     #1431655764
-          HierarchyParent     #ActionPaneTab
-        ENDPROPERTIES
-        
-        METHODS
-        ENDMETHODS
-      ENDCONTROL 
-      
-      CONTROL GRID
-        PROPERTIES
-          Name                #Grid
-          Width               #Column width
-          Height              #Column height
-          ElementPosition     #1431655764
-          HierarchyParent     #Group
-          DataSource          #PayrollPretEtablissementPayeur
-          GridLinesStyle      #Vertical
-        ENDPROPERTIES
-        
-        METHODS
-        ENDMETHODS
-      ENDCONTROL 
-      
-      CONTROL GROUP
-        PROPERTIES
-          Name                #Body
-          ElementPosition     #1431655764
-          Style               #MarginlessContainer
-          Columns             #2
-          ArrangeGuide        
-            ARRAY INDEX Columns 
-              #0
-              #0
-            ENDARRAY
-        ENDPROPERTIES
-        
-        METHODS
-        ENDMETHODS
-      ENDCONTROL 
-      
-      CONTROL GROUP
-        PROPERTIES
-          Name                #Details
-          ElementPosition     #1610612733
-          HierarchyParent     #Body
-        ENDPROPERTIES
-        
-        METHODS
-        ENDMETHODS
-      ENDCONTROL 
-      
-      CONTROL GROUP
-        PROPERTIES
-          Name                #Group
-          ElementPosition     #1073741822
-          HierarchyParent     #Body
-          Style               #BorderlessGridContainer
-        ENDPROPERTIES
-        
-        METHODS
-        ENDMETHODS
-      ENDCONTROL 
-      
-      CONTROL COMMANDBUTTON
-        PROPERTIES
-          Name                #Delete
-          ElementPosition     #1610612733
-          HierarchyParent     #ButtonGroup
-          Text                #Supprimer
-          ButtonDisplay       #Text & Image left
-          NormalImage         #10121
-          ImageLocation       #EmbeddedResource
-          SaveRecord          #No
-          Primary             #Yes
-          Command             #2832
-        ENDPROPERTIES
-        
-        METHODS
-        ENDMETHODS
-      ENDCONTROL 
-      
-      CONTROL COMMANDBUTTON
-        PROPERTIES
-          Name                #New
-          ElementPosition     #1073741822
-          HierarchyParent     #ButtonGroup
-          ButtonDisplay       #Text & Image left
-          NormalImage         #11045
-          ImageLocation       #EmbeddedResource
-          Primary             #Yes
-          Command             #260
-        ENDPROPERTIES
-        
-        METHODS
-        ENDMETHODS
-      ENDCONTROL 
-      
-      CONTROL STRINGEDIT
-        PROPERTIES
-          Name                #PayrollPretEtablissementPayeur_Code
-          ElementPosition     #1073741822
-          HierarchyParent     #Grid
-          DataSource          #PayrollPretEtablissementPayeur
-          DataField           #Code
-        ENDPROPERTIES
-        
-        METHODS
-        ENDMETHODS
-      ENDCONTROL 
-      
-      CONTROL STRINGEDIT
-        PROPERTIES
-          Name                #PayrollPretEtablissementPayeur_Code1
-          ElementPosition     #1073741822
-          HierarchyParent     #Details
-          DataSource          #PayrollPretEtablissementPayeur
-          DataField           #Code
-        ENDPROPERTIES
-        
-        METHODS
-        ENDMETHODS
-      ENDCONTROL 
-      
-      CONTROL STRINGEDIT
-        PROPERTIES
-          Name                #PayrollPretEtablissementPayeur_Intitule
-          ElementPosition     #1610612733
-          HierarchyParent     #Grid
-          DataSource          #PayrollPretEtablissementPayeur
-          DataField           #Intitule
-        ENDPROPERTIES
-        
-        METHODS
-        ENDMETHODS
-      ENDCONTROL 
-      
-      CONTROL STRINGEDIT
-        PROPERTIES
-          Name                #PayrollPretEtablissementPayeur_Intitule1
-          ElementPosition     #1610612733
-          HierarchyParent     #Details
-          DataSource          #PayrollPretEtablissementPayeur
-          DataField           #Intitule
-        ENDPROPERTIES
-        
-        METHODS
-        ENDMETHODS
-      ENDCONTROL 
-      
-    ENDCONTAINER
-    
-  ENDDESIGN
-  
-  PERMISSIONS #Permissions
-    PROPERTIES
-    ENDPROPERTIES
-    
-    PERMISSIONSET #Read
-      PROPERTIES
-      ENDPROPERTIES
-      
-      FORM #Controls
-      ENDFORM
-      
-    TABLES #Tables
-    ENDTABLES
-    
-  SERVERMETHODS #Server Methods
-  ENDSERVERMETHODS
-  
-ASSOCIATEDFORMS #Associated Forms
-ENDASSOCIATEDFORMS
-
-ENDPERMISSIONSET
-
-PERMISSIONSET #Update
-  PROPERTIES
-  ENDPROPERTIES
-  
-  FORM #Controls
-  ENDFORM
-  
-TABLES #Tables
-ENDTABLES
-
-SERVERMETHODS #Server Methods
-ENDSERVERMETHODS
-
-ASSOCIATEDFORMS #Associated Forms
-ENDASSOCIATEDFORMS
-
-ENDPERMISSIONSET
-
-PERMISSIONSET #Create
-  PROPERTIES
-  ENDPROPERTIES
-  
-  FORM #Controls
-  ENDFORM
-  
-TABLES #Tables
-ENDTABLES
-
-SERVERMETHODS #Server Methods
-ENDSERVERMETHODS
-
-ASSOCIATEDFORMS #Associated Forms
-ENDASSOCIATEDFORMS
-
-ENDPERMISSIONSET
-
-PERMISSIONSET #Delete
-  PROPERTIES
-  ENDPROPERTIES
-  
-  FORM #Controls
-  ENDFORM
-  
-TABLES #Tables
-ENDTABLES
-
-SERVERMETHODS #Server Methods
-ENDSERVERMETHODS
-
-ASSOCIATEDFORMS #Associated Forms
-ENDASSOCIATEDFORMS
-
-ENDPERMISSIONSET
-
-ENDPERMISSIONS
-
-ENDFORM
-
-
-***Element: FRM
-
-; Microsoft Dynamics AX Forms unloaded
-; --------------------------------------------------------------------------------
-FRMVERSION 12
-
 FORM #PayrollPret
   PROPERTIES
     Name                #PayrollPret
@@ -8105,7 +8271,7 @@ FORM #PayrollPret
       CONTROL GROUP
         PROPERTIES
           Name                #Body
-          ElementPosition     #1610612733
+          ElementPosition     #1342177278
           Style               #BorderlessGridContainer
         ENDPROPERTIES
         
@@ -8535,6 +8701,318 @@ ENDTABLES
 SERVERMETHODS #Server Methods
 ENDSERVERMETHODS
 
+ASSOCIATEDFORMS #Associated Forms
+ENDASSOCIATEDFORMS
+
+ENDPERMISSIONSET
+
+PERMISSIONSET #Update
+  PROPERTIES
+  ENDPROPERTIES
+  
+  FORM #Controls
+  ENDFORM
+  
+TABLES #Tables
+ENDTABLES
+
+SERVERMETHODS #Server Methods
+ENDSERVERMETHODS
+
+ASSOCIATEDFORMS #Associated Forms
+ENDASSOCIATEDFORMS
+
+ENDPERMISSIONSET
+
+PERMISSIONSET #Create
+  PROPERTIES
+  ENDPROPERTIES
+  
+  FORM #Controls
+  ENDFORM
+  
+TABLES #Tables
+ENDTABLES
+
+SERVERMETHODS #Server Methods
+ENDSERVERMETHODS
+
+ASSOCIATEDFORMS #Associated Forms
+ENDASSOCIATEDFORMS
+
+ENDPERMISSIONSET
+
+PERMISSIONSET #Delete
+  PROPERTIES
+  ENDPROPERTIES
+  
+  FORM #Controls
+  ENDFORM
+  
+TABLES #Tables
+ENDTABLES
+
+SERVERMETHODS #Server Methods
+ENDSERVERMETHODS
+
+ASSOCIATEDFORMS #Associated Forms
+ENDASSOCIATEDFORMS
+
+ENDPERMISSIONSET
+
+ENDPERMISSIONS
+
+ENDFORM
+
+
+***Element: FRM
+
+; Microsoft Dynamics AX Forms unloaded
+; --------------------------------------------------------------------------------
+FRMVERSION 12
+
+FORM #PayrollPretEtablissementPayeur
+  PROPERTIES
+    Name                #PayrollPretEtablissementPayeur
+    Origin              #{3FC0BA7B-33FD-41D4-B91E-3400924D3263}
+  ENDPROPERTIES
+  
+  METHODS
+    SOURCE #classDeclaration
+      #public class FormRun extends ObjectRun
+      #{
+      #}
+    ENDSOURCE
+  ENDMETHODS
+  OBJECTBANK
+    PROPERTIES
+    ENDPROPERTIES
+    
+    DATASOURCE
+      OBJECTPOOL
+        PROPERTIES
+          Name                #PayrollPretEtablissementPayeur
+          Table               #PayrollPretEtablissementPayeur
+        ENDPROPERTIES
+        
+        FIELDLIST
+        ENDFIELDLIST
+      ENDOBJECTPOOL
+      METHODS
+      ENDMETHODS
+    ENDDATASOURCE
+  ENDOBJECTBANK
+  
+  REFERENCEDATASOURCES
+  ENDREFERENCEDATASOURCES
+  
+  JOINS
+  ENDJOINS
+  
+  PARTREFERENCES
+  ENDPARTREFERENCES
+  
+  DESIGN
+    PROPERTIES
+    ENDPROPERTIES
+    
+    CONTAINER
+      CONTROL ACTIONPANE
+        PROPERTIES
+          Name                #ActionPane
+          ElementPosition     #715827882
+          Style               #Strip
+          DataSource          #PayrollPretEtablissementPayeur
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL ACTIONPANETAB
+        PROPERTIES
+          Name                #ActionPaneTab
+          ElementPosition     #1431655764
+          HierarchyParent     #ActionPane
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL BUTTONGROUP
+        PROPERTIES
+          Name                #ButtonGroup
+          ElementPosition     #1431655764
+          HierarchyParent     #ActionPaneTab
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL GRID
+        PROPERTIES
+          Name                #Grid
+          Width               #Column width
+          Height              #Column height
+          ElementPosition     #1431655764
+          HierarchyParent     #Group
+          DataSource          #PayrollPretEtablissementPayeur
+          GridLinesStyle      #Vertical
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL GROUP
+        PROPERTIES
+          Name                #Body
+          ElementPosition     #1431655764
+          Style               #MarginlessContainer
+          Columns             #2
+          ArrangeGuide        
+            ARRAY INDEX Columns 
+              #0
+              #0
+            ENDARRAY
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL GROUP
+        PROPERTIES
+          Name                #Details
+          ElementPosition     #1610612733
+          HierarchyParent     #Body
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL GROUP
+        PROPERTIES
+          Name                #Group
+          ElementPosition     #1073741822
+          HierarchyParent     #Body
+          Style               #BorderlessGridContainer
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL COMMANDBUTTON
+        PROPERTIES
+          Name                #Delete
+          ElementPosition     #1610612733
+          HierarchyParent     #ButtonGroup
+          Text                #Supprimer
+          ButtonDisplay       #Text & Image left
+          NormalImage         #10121
+          ImageLocation       #EmbeddedResource
+          SaveRecord          #No
+          Primary             #Yes
+          Command             #2832
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL COMMANDBUTTON
+        PROPERTIES
+          Name                #New
+          ElementPosition     #1073741822
+          HierarchyParent     #ButtonGroup
+          ButtonDisplay       #Text & Image left
+          NormalImage         #11045
+          ImageLocation       #EmbeddedResource
+          Primary             #Yes
+          Command             #260
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL STRINGEDIT
+        PROPERTIES
+          Name                #PayrollPretEtablissementPayeur_Code
+          ElementPosition     #1073741822
+          HierarchyParent     #Grid
+          DataSource          #PayrollPretEtablissementPayeur
+          DataField           #Code
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL STRINGEDIT
+        PROPERTIES
+          Name                #PayrollPretEtablissementPayeur_Code1
+          ElementPosition     #1073741822
+          HierarchyParent     #Details
+          DataSource          #PayrollPretEtablissementPayeur
+          DataField           #Code
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL STRINGEDIT
+        PROPERTIES
+          Name                #PayrollPretEtablissementPayeur_Intitule
+          ElementPosition     #1610612733
+          HierarchyParent     #Grid
+          DataSource          #PayrollPretEtablissementPayeur
+          DataField           #Intitule
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL STRINGEDIT
+        PROPERTIES
+          Name                #PayrollPretEtablissementPayeur_Intitule1
+          ElementPosition     #1610612733
+          HierarchyParent     #Details
+          DataSource          #PayrollPretEtablissementPayeur
+          DataField           #Intitule
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+    ENDCONTAINER
+    
+  ENDDESIGN
+  
+  PERMISSIONS #Permissions
+    PROPERTIES
+    ENDPROPERTIES
+    
+    PERMISSIONSET #Read
+      PROPERTIES
+      ENDPROPERTIES
+      
+      FORM #Controls
+      ENDFORM
+      
+    TABLES #Tables
+    ENDTABLES
+    
+  SERVERMETHODS #Server Methods
+  ENDSERVERMETHODS
+  
 ASSOCIATEDFORMS #Associated Forms
 ENDASSOCIATEDFORMS
 
@@ -9094,7 +9572,7 @@ FORM #PayrollPretListPage
           AllowEdit           #No
           Width               #Column width
           Height              #Column height
-          ElementPosition     #1610612734
+          ElementPosition     #1610612733
           DataSource          #PayrollPret
           DefaultAction       #ViewButton
         ENDPROPERTIES
@@ -9312,13 +9790,11 @@ FORM #PayrollPretListPage
             #                    valEcheance= capitalAmortit + interet ;
             #                    capitalRetDu = capitalDU - capitalAmortit ;
             #                    TotalAmortit = TotalAmortit + capitalAmortit ;
-            #
             #                    amortissements_Update.Annuite=valEcheance ;
             #                    amortissements_Update.CapitalDu = capitalDU ;
             #                    amortissements_Update.CapitalAmorti = capitalAmortit ;
             #                    amortissements_Update.CapitalRetDu = capitalRetDu ;
             #                    amortissements_Update.TotalAmorti = pret.Montant ;
-            #
             #                    ttsBegin;
             #                    amortissements_Update.update();
             #                    ttsCommit;
@@ -9327,7 +9803,6 @@ FORM #PayrollPretListPage
             #                        select forUpdate amortissements_Update
             #                        where amortissements_Update.PayrollPret == pret.RecId
             #                        && amortissements_Update.Numero > num
-            #
             #                    {
             #                     ttsBegin;
             #                     amortissements_Update.delete();
@@ -9531,9 +10006,14 @@ FORM #PayrollPretListPage
             #
             #        {
             #            while select forUpdate  amortissements_Update
-            #            where amortissements_Update.isPayed == NoYes :: No
-            #               && amortissements_Update.PayrollPret == pret.RecId
+            #            order by Numero desc
+            #               where amortissements_Update.PayrollPret == pret.RecId
+            #
             #            {
+            #                if(amortissements_Update.isPayed == NoYes ::Yes || amortissements_Update.isRembourse == NoYes::Yes)
+            #                {
+            #                    break;
+            #                }
             #                amortissements_Update.Date = DateTimeUtil::addMonths(amortissements_Update.Date,dialogNbMois.value());
             #                ttsBegin;
             #                amortissements_Update.update();
@@ -10436,6 +10916,13 @@ ENDFORM
         NODETYPE 296
         NAME #PayrollPretType
       ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 44
+        UTILOBJECTID 103676
+        NODETYPE 204
+        NAME #PayrollPret
+      ENDNODE
       ENDGROUP
       
     GROUP #EDT
@@ -10449,7 +10936,7 @@ ENDFORM
       BEGINNODE
         FILETYPE 0
         UTILTYPE 41
-        UTILOBJECTID 103759
+        UTILOBJECTID 103765
         NODETYPE 234
         NAME #MatriculePret
       ENDNODE
@@ -10466,14 +10953,14 @@ ENDFORM
       BEGINNODE
         FILETYPE 0
         UTILTYPE 44
-        UTILOBJECTID 103633
+        UTILOBJECTID 103677
         NODETYPE 204
         NAME #PayrollPretAmortissements
       ENDNODE
       BEGINNODE
         FILETYPE 0
         UTILTYPE 44
-        UTILOBJECTID 103632
+        UTILOBJECTID 103676
         NODETYPE 204
         NAME #PayrollPret
       ENDNODE
@@ -10487,21 +10974,21 @@ ENDFORM
       BEGINNODE
         FILETYPE 0
         UTILTYPE 44
-        UTILOBJECTID 103634
+        UTILOBJECTID 103678
         NODETYPE 204
         NAME #PayrollPretEtablissementPayeur
       ENDNODE
       BEGINNODE
         FILETYPE 0
         UTILTYPE 44
-        UTILOBJECTID 103635
+        UTILOBJECTID 103679
         NODETYPE 204
         NAME #PayrollPretObjet
       ENDNODE
       BEGINNODE
         FILETYPE 0
         UTILTYPE 44
-        UTILOBJECTID 103636
+        UTILOBJECTID 103680
         NODETYPE 204
         NAME #PayrollPretType
       ENDNODE
@@ -10515,6 +11002,27 @@ ENDFORM
         PreventEditProperties #No
       ENDPROPERTIES
       
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 5
+        UTILOBJECTID 0
+        NODETYPE 215
+        NAME #insertTaxTN
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 5
+        UTILOBJECTID 0
+        NODETYPE 215
+        NAME #CreerReferenceSouche
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 5
+        UTILOBJECTID 0
+        NODETYPE 215
+        NAME #clearpret
+      ENDNODE
       ENDGROUP
       
     GROUP #Classes
@@ -10528,7 +11036,7 @@ ENDFORM
       BEGINNODE
         FILETYPE 0
         UTILTYPE 45
-        UTILOBJECTID 1023829
+        UTILOBJECTID 1023877
         NODETYPE 329
         NAME #PayrollPretCalculateEcheancier
       ENDNODE
@@ -10575,14 +11083,14 @@ ENDFORM
         UTILTYPE 11
         UTILOBJECTID 0
         NODETYPE 201
-        NAME #PayrollPretEtablissementPayeur
+        NAME #PayrollPret
       ENDNODE
       BEGINNODE
         FILETYPE 0
         UTILTYPE 11
         UTILOBJECTID 0
         NODETYPE 201
-        NAME #PayrollPret
+        NAME #PayrollPretEtablissementPayeur
       ENDNODE
       BEGINNODE
         FILETYPE 0
@@ -10618,14 +11126,14 @@ ENDFORM
       BEGINNODE
         FILETYPE 0
         UTILTYPE 40
-        UTILOBJECTID 101235
+        UTILOBJECTID 101244
         NODETYPE 209
         NAME #PayrollPretRemboursementType
       ENDNODE
       BEGINNODE
         FILETYPE 0
         UTILTYPE 40
-        UTILOBJECTID 101236
+        UTILOBJECTID 101245
         NODETYPE 209
         NAME #PayrollPretStatus
       ENDNODE
